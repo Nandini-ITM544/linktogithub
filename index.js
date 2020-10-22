@@ -13,24 +13,17 @@ console.log(defaultTemperature);
 let farenheitButton = document.querySelector("#farenheit");
 let celsiusButton = document.querySelector("#celsius");
 
-function getGlobalCityNames() {
-  let globalCityName = document.querySelector("#global_cities").innerHTML;
-  // let globalCityName = cityName;
-  console.log(globalCityName);
-  axios
-    .get(`${apiUrl}q=${globalCityName}&appid=${apiKey}&units=${units}`)
-    .then(globalCityInformation);
-}
+//
 
-getGlobalCityNames();
+//getGlobalCityNames();
 
-function globalCityInformation(response) {
-  let cityName = response.data.name;
-  let cityTemp = response.data.main.temp;
-  document.querySelector("#global_cities").innerHTML = cityName;
+// function globalCityInformation(response) {
+//   let cityName = response.data.name;
+//   let cityTemp = response.data.main.temp;
+//   document.querySelector("#global_cities").innerHTML = cityName;
 
-  document.querySelector("#global_temp").innerHTML = `${cityTemp}°C`;
-}
+//   document.querySelector("#global_temp").innerHTML = `${cityTemp}°C`;
+// }
 
 currentLocation.addEventListener("click", getCurrentLocation);
 
