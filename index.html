@@ -84,6 +84,7 @@
             Sunnyvale
           </h1>
           <h2 id="mainTemperature" style="color: rgb(0 132 255)">
+            <img id="iconElement" src="" />
             <span id="temp">23</span><span class="symbol">°C</span>
 
             <div class="btn-group btn-group-toggle" data-toggle="buttons">
@@ -135,11 +136,11 @@
           <div class="card-group">
             <div class="card" style="border: 0px">
               <div class="card-body">
-                <h5 class="card-title">Monday</h5>
-                <p class="card-text">23°C ☀️</p>
+                <h5 class="card-title"><img id="icon" src="" /></h5>
+                <p class="card-text" id="forecast"></p>
               </div>
             </div>
-            <div class="card" style="border: 0px">
+            <!-- <div class="card" style="border: 0px">
               <div class="card-body">
                 <h5 class="card-title">Tuesday</h5>
                 <p class="card-text">18°C 🌤</p>
@@ -149,8 +150,8 @@
               <div class="card-body">
                 <h5 class="card-title">Wednesday</h5>
                 <p class="card-text">25°C 🌧</p>
-              </div>
-            </div>
+              </div> -->
+            <!-- </div>
             <div class="card" style="border: 0px">
               <div class="card-body">
                 <h5 class="card-title">Thursday</h5>
@@ -162,41 +163,10 @@
                 <h5 class="card-title">Friday</h5>
                 <p class="card-text">20°C 🌦</p>
               </div>
-            </div>
+            </div> -->
           </div>
         </div>
-        <!-- <div class="countries">
-          <div class="NewYork" >
-         <button type="button" class="btn btn-primary globe" style="left:5px;">
-              <p>  <i class="fas fa-hand-holding-usd"></i> New York </p>
-              <p id="currentDate"></p>
-            <p> 24°C</p>
-            </button>
-            
-          </div>
-            <div class="London" style="padding-left:110px;">
-             <p>  <button type="button" class="btn btn-secondary globe" >
-                        <i class="fas fa-monument"></i> London </p>
-                        <p id="currentDate"></p>
-                        <p> 18°C</p>
-            </button>
-          </div>
-          <div class="Bangalore" style="padding-left:110px;">
-                <button type="button" class="btn btn-success globe">
-                  <p> <i class="fas fa-city"></i> <span id ="global_cities">Bangalore</span></p>
-                  <p id="currentDate"></p>
-                        <p id="global_temp">25°C</p>
-             </button>
-          </div>
-          <div class="Singapore" style="padding-left:110px;">
-            
-            <button type="button" class="btn btn-danger globe" >
-                 <p>  <i class="fas fa-industry"></i> <span id ="global_cities">Singapore</span> </p>
-                 <p id="currentDate"></p>
-                 <p id="global_temp"> 18°C</p>
-             </button>
-          </div>
-          </div> -->
+
         <footer>
           <p>
             <a

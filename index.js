@@ -13,18 +13,6 @@ console.log(defaultTemperature);
 let farenheitButton = document.querySelector("#farenheit");
 let celsiusButton = document.querySelector("#celsius");
 
-//
-
-//getGlobalCityNames();
-
-// function globalCityInformation(response) {
-//   let cityName = response.data.name;
-//   let cityTemp = response.data.main.temp;
-//   document.querySelector("#global_cities").innerHTML = cityName;
-
-//   document.querySelector("#global_temp").innerHTML = `${cityTemp}°C`;
-// }
-
 currentLocation.addEventListener("click", getCurrentLocation);
 
 function getCurrentLocation(event) {
@@ -49,6 +37,12 @@ function getCurrentLocationTemperature(response) {
   document.querySelector(".cityorzip").innerHTML = currentCity;
   document.querySelector("#temp").innerHTML = currentCityTemperature;
   defaultTemperature = currentCityTemperature;
+  iconElement.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
+  apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${currentCity}&appid=${apiKey}&units=${units}`;
+  axios.get(apiUrl).then(displayForecast);
 }
 
 function displayCity(event) {
@@ -61,6 +55,21 @@ function displayCity(event) {
   axios
     .get(`${apiUrl}q=${selectedCity}&appid=${apiKey}&units=${units}`)
     .then(getSelectedCityTemperature);
+
+  apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${selectedCity}&appid=${apiKey}&units=${units}`;
+  axios.get(apiUrl).then(displayForecast);
+}
+
+function displayForecast(response) {
+  console.log(response.data);
+  console.log(response.data.list[0].weather[0].icon);
+
+  let forecast = document.querySelector("#forecast");
+  forecast.innerHTML = Math.round(response.data.list[0].main.temp);
+  icon.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.list[0].weather[0].icon}@2x.png`
+  );
 }
 
 function getSelectedCityTemperature(response) {
@@ -69,6 +78,10 @@ function getSelectedCityTemperature(response) {
   document.querySelector(".cityorzip").innerHTML = city;
   document.querySelector("#temp").innerHTML = cityTemperature;
   defaultTemperature = cityTemperature;
+  iconElement.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
 }
 
 searchQuery.addEventListener("submit", displayCity);
