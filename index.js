@@ -41,8 +41,8 @@ function getCurrentLocationTemperature(response) {
     "src",
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
-  apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${currentCity}&appid=${apiKey}&units=${units}`;
-  axios.get(apiUrl).then(displayForecast);
+  apiUrlForecast = `https://api.openweathermap.org/data/2.5/forecast?q=${currentCity}&appid=${apiKey}&units=${units}`;
+  axios.get(apiUrlForecast).then(displayForecast);
 }
 
 function displayCity(event) {
@@ -56,8 +56,8 @@ function displayCity(event) {
     .get(`${apiUrl}q=${selectedCity}&appid=${apiKey}&units=${units}`)
     .then(getSelectedCityTemperature);
 
-  apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${selectedCity}&appid=${apiKey}&units=${units}`;
-  axios.get(apiUrl).then(displayForecast);
+  apiUrlForecast = `https://api.openweathermap.org/data/2.5/forecast?q=${selectedCity}&appid=${apiKey}&units=${units}`;
+  axios.get(apiUrlForecast).then(displayForecast);
 }
 
 function displayForecast(response) {
@@ -163,12 +163,57 @@ function changeTemp(event) {
 
 farenheitButton.addEventListener("click", changeTemp);
 
-function displayDefaultTemp() {
+// function displayDefaultTemp() {
+//   let displayTempInC = document.querySelector("#temp");
+
+//   displayTempInC.innerHTML = `${defaultTemperature}`;
+//   let degreSymbol = document.querySelector(".symbol");
+//   degreSymbol.innerHTML = `°C`;
+// }
+
+// celsiusButton.addEventListener("click", displayDefaultTemp);
+
+celsiusButton.addEventListener("click", changeTempBacktoCelsius);
+
+function displayCelsiusTemperature(response) {
+  let newtemp = Math.round(response.data.main.temp);
+  console.log(newtemp);
+
   let displayTempInC = document.querySelector("#temp");
 
-  displayTempInC.innerHTML = `${defaultTemperature}`;
+  displayTempInC.innerHTML = `${newtemp}`;
   let degreSymbol = document.querySelector(".symbol");
   degreSymbol.innerHTML = `°C`;
 }
 
-celsiusButton.addEventListener("click", displayDefaultTemp);
+function displayTemperatureInCelsius(response) {
+  let selectedCity = document.querySelector("#cityname").value;
+
+  axios
+    .get(`${apiUrl}q=${selectedCity}&appid=${apiKey}&units=${units}`)
+    .then(displayCelsiusTemperature);
+}
+
+function changeTempBacktoCelsius(event) {
+  event.preventDefault();
+  displayTemperatureInCelsius();
+}
+
+function displayTemperatureInCelsius(response) {
+  let selectedCity = document.querySelector("#cityname").value;
+
+  axios
+    .get(`${apiUrl}q=${selectedCity}&appid=${apiKey}&units=${units}`)
+    .then(displayCelsiusTemperature);
+}
+
+function displayCelsiusTemperature(response) {
+  let newtemp = Math.round(response.data.main.temp);
+  console.log(newtemp);
+
+  let displayTempInC = document.querySelector("#temp");
+
+  displayTempInC.innerHTML = `${newtemp}`;
+  let degreSymbol = document.querySelector(".symbol");
+  degreSymbol.innerHTML = `°C`;
+}
