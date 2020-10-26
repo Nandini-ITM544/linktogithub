@@ -149,6 +149,8 @@ function convertToFarenheit() {
 }
 
 function displayTemperatureInFarenheit() {
+  celsiusButton.classList.remove("active");
+  farenheitButton.classList.add("active");
   let temp_f = convertToFarenheit();
   let displayTempInF = document.querySelector("#temp");
   let degreSymbol = document.querySelector(".symbol");
@@ -164,6 +166,8 @@ function changeTemp(event) {
 farenheitButton.addEventListener("click", changeTemp);
 
 function displayDefaultTemp() {
+  farenheitButton.classList.remove("active");
+  celsiusButton.classList.add("active");
   let displayTempInC = document.querySelector("#temp");
 
   displayTempInC.innerHTML = `${defaultTemperature}`;
