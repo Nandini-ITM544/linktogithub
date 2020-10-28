@@ -61,15 +61,25 @@ function displayCity(event) {
 }
 
 function displayForecast(response) {
-  console.log(response.data);
-  console.log(response.data.list[0].weather[0].icon);
+  console.log(response.data.list[0]);
+  let forecast = null;
 
-  let forecast = document.querySelector("#forecast");
-  forecast.innerHTML = Math.round(response.data.list[0].main.temp);
-  icon.setAttribute(
-    "src",
-    `http://openweathermap.org/img/wn/${response.data.list[0].weather[0].icon}@2x.png`
-  );
+  let forecastElement = document.querySelector(".forecast-element");
+  forecastElement.innerHTML = null;
+  for (let index = 0; index < 8; index++) {
+    forecast = response.data.list[index];
+    forecastElement.innerHTML += `<div class="card-group">
+  <div class="card" style="border: 0px">
+    <div class="card-body">
+      <h5 class="card-title"><img id="icon" src="http://openweathermap.org/img/wn/${
+        forecast.weather[0].icon
+      }@2x.png" /></h5>
+      <p class="card-text" id="forecast">${Math.round(
+        forecast.main.temp_max
+      )}°</p>
+    </div>
+    </div>`;
+  }
 }
 
 function getSelectedCityTemperature(response) {
