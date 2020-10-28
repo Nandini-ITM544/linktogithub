@@ -37,14 +37,14 @@ h1 {
 .cityorzip {
   font-family: "Lato", sans-serif;
 }
-.forecast {
+.forecast-element {
   padding-top: 55px;
   text-align: center;
-
-  font-size: 24px;
+  display: flex;
+  font-size: 10px;
 }
 
-.forecast .card {
+.forecast-element .card {
   height: 100px;
   background-color: transparent;
   font-family: "Oswald", sans-serif;
@@ -52,7 +52,7 @@ h1 {
   color: #1a1423;
   font-weight: bold;
 }
-.forecast .card-text {
+.forecast-element .card-text {
   color: rgb(0 132 255);
   font-size: 27px;
   font-family: "Slabo 27px", serif;
@@ -96,5 +96,5 @@ footer {
   margin: 0 auto;
   display: block;
   text-align: center;
-  /* padding-top: 30px; */
+  padding-top: 85px;
 }
