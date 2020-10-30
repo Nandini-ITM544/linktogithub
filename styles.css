@@ -6,15 +6,20 @@ h1 {
   font-family: "Montserrat", sans-serif;
 }
 .search {
-  position: fixed;
+  /* position: fixed; */
   top: 120px;
   left: 120px;
   /*display: flex; */
 }
 
+#search-city {
+  top: 120px;
+  left: 120px;
+}
+
 #location {
   top: 175px;
-  position: fixed;
+  /* position: fixed; */
   left: 210px;
 }
 #current-location {
@@ -78,15 +83,6 @@ h1 {
   width: 150px;
   border: 4px solid #ff9f1c;
 }
-.countries {
-  padding-top: 55px;
-  display: flex;
-}
-.globe {
-  height: 120px;
-  width: 250px;
-  border-radius: 10px;
-}
 
 .unit {
   border-color: transparent;
@@ -96,5 +92,5 @@ footer {
   margin: 0 auto;
   display: block;
   text-align: center;
-  padding-top: 85px;
+  padding-top: 200px;
 }

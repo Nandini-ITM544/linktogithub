@@ -5,153 +5,187 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Document</title>
-    <link rel="stylesheet" href="styles.css" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Lato:ital@1&display=swap"
-      rel="stylesheet"
-    />
+    <link rel="stylesheet" href="button.css" />
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
       integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
       crossorigin="anonymous"
     />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@200&display=swap"
-      rel="stylesheet"
-    />
-    <script
-      src="https://kit.fontawesome.com/728138c42f.js"
-      crossorigin="anonymous"
-    ></script>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@200&family=Slabo+27px&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:ital,wght@1,200&family=Roboto+Mono:wght@200&family=Slabo+27px&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Oswald:wght@200&display=swap"
-      rel="stylesheet"
-    />
+
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   </head>
   <body
-    style="background-image: linear-gradient(to top, #accbee 0%, #e7f0fd 100%);"
+    style="background-image: linear-gradient(to top, #accbee 0%, #e7f0fd 100%)"
   >
-    <div class="weatherchannel">
+    <div class="container">
       <h1>Welcome to Nandini's weather channel 👋🏻</h1>
-      <div class="container">
-        <div class="search">
-          <form class="form-inline" id="search-city">
-            <div class="form-group mb-2"></div>
-            <div class="form-group mx-sm-3 mb-2">
-              <label for="city/zip" class="sr-only"></label>
+
+      <div class="search">
+        <form class="mb-3" id="search-city">
+          <div class="row">
+            <div class="col-6">
+              <!-- <div class="form-group mb-2"></div> -->
+              <!-- <div class="form-group mx-sm-3 mb-2"> -->
+              <!-- <label for="city/zip" class="sr-only"></label> -->
               <input
-                type="text"
+                type="search"
                 class="form-control"
                 id="cityname"
-                placeholder="🔍  Enter a city or zip"
+                placeholder="Enter a city"
                 autofocus="on"
                 autocomplete="on"
-                style="width: 350px;"
+                style="width: 350px"
               />
             </div>
+
+            <!-- </div> -->
             <!-- <button type="button"  id="search-button">Search</button> -->
-          </form>
-          <div id="location">
-            <button type="button" id="current-location">
-              Current Location
-            </button>
           </div>
-        </div>
+        </form>
 
-        <div class="city">
-          <h1
-            class="cityorzip"
-            style="
-              font-family: 'Roboto Mono', monospace;
-              font-weight: bold;
-              text-shadow: 2px 2px 8px #ff9f1c;
-            "
-          >
-            Sunnyvale
-          </h1>
-          <h2 id="mainTemperature" style="color: rgb(0 132 255);">
-            <img id="iconElement" src="" />
-            <span id="temp">23</span><span class="symbol">°C</span>
-
-            <div class="btn-group btn-group-toggle" data-toggle="buttons">
-              <label class="btn btn-secondary active" id="celsius">
-                <input
-                  type="radio"
-                  name="options"
-                  id="option1"
-                  autocomplete="off"
-                />
-                C
-              </label>
-              <label class="btn btn-secondary" id="farenheit">
-                <input
-                  type="radio"
-                  name="options"
-                  id="option2"
-                  autocomplete="off"
-                />
-                F
-              </label>
-            </div>
-          </h2>
+        <div id="location">
+          <button type="button" id="current-location">Current Location</button>
         </div>
-
-        <div class="row">
-          <div class="col-sm-6">
-            <div class="card information">
-              <div class="card-body">
-                <p class="card-text" id="currenttime"></p>
-                <p class="card-text">Sunny Currently ☀️</p>
-                <p class="card-text">Highest for the day: 25°C</p>
-                <p class="card-text">Lowest for the day: 9°C</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-sm-6">
-            <div class="card ex information" style="left: 105px;">
-              <div class="card-body">
-                <p class="card-text">Real Feel: 23°C</p>
-                <p class="card-text">Air Quality:Good</p>
-                <p class="card-text">Wind:NNW 12mph</p>
-                <p class="card-text">Chance of Rain: 10%</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="forecast-element">
-          <!-- <div class="card-group">
-              <div class="card" style="border: 0px">
-                <div class="card-body">
-                  <h5 class="card-title"><img id="icon" src="" /></h5>
-                  <p class="card-text" id="forecast"></p>
-                </div> -->
-        </div>
-
-        <footer>
-          <p>
-            <a
-              href="https://github.com/Nandini-ITM544/linktogithub"
-              target="_blank"
-              >Open source code</a
-            >
-            by Nandini
-          </p>
-        </footer>
       </div>
+
+      <div class="city">
+        <h1
+          class="cityorzip"
+          style="
+            font-family: 'Roboto Mono', monospace;
+            font-weight: bold;
+            text-shadow: 2px 2px 8px #ff9f1c;
+          "
+        ></h1>
+        <h2 id="mainTemperature" style="color: rgb(0 132 255)">
+          <img id="iconElement" src="" />
+          <span id="temp"></span><span class="symbol"></span>
+
+          <div class="btn-group btn-group-toggle" data-toggle="buttons">
+            <label class="btn btn-secondary active" id="celsius">
+              <input
+                type="radio"
+                name="options"
+                id="option1"
+                autocomplete="off"
+              />
+              C
+            </label>
+            <label class="btn btn-secondary" id="farenheit">
+              <input
+                type="radio"
+                name="options"
+                id="option2"
+                autocomplete="off"
+              />
+              F
+            </label>
+          </div>
+        </h2>
+      </div>
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="card information">
+            <div class="card-body">
+              <p class="card-text" id="currenttime"></p>
+
+              <p class="card-text">
+                Highest for the day: <span id="high-temp"></span>
+              </p>
+              <p class="card-text">
+                Lowest for the day: <span id="low-temp"></span>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="card ex information" style="left: 105px">
+            <div class="card-body">
+              <p class="card-text">Real Feel: <span id="real-feel"></span></p>
+              <p class="card-text">Humidity: <span id="humid"></span>%</p>
+              <p class="card-text">Wind: NE <span id="wind"></span>mph</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="forecast-element">
+        <div class="card-group">
+          <div class="card" style="border: 0px">
+            <div class="card-body">
+              <h5 class="card-title"><img id="icon" src="" /></h5>
+              <p class="card-text0" id="forecast"></p>
+            </div>
+          </div>
+        </div>
+        <div class="card-group">
+          <div class="card" style="border: 0px">
+            <div class="card-body">
+              <h5 class="card-title"><img id="icon" src="" /></h5>
+              <p class="card-text1" id="forecast"></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-group">
+          <div class="card" style="border: 0px">
+            <div class="card-body">
+              <h5 class="card-title"><img id="icon" src="" /></h5>
+              <p class="card-text2" id="forecast"></p>
+            </div>
+          </div>
+        </div>
+        <div class="card-group">
+          <div class="card" style="border: 0px">
+            <div class="card-body">
+              <h5 class="card-title"><img id="icon" src="" /></h5>
+              <p class="card-text3" id="forecast"></p>
+            </div>
+          </div>
+        </div>
+        <div class="card-group">
+          <div class="card" style="border: 0px">
+            <div class="card-body">
+              <h5 class="card-title"><img id="icon" src="" /></h5>
+              <p class="card-text4" id="forecast"></p>
+            </div>
+          </div>
+        </div>
+        <div class="card-group">
+          <div class="card" style="border: 0px">
+            <div class="card-body">
+              <h5 class="card-title"><img id="icon" src="" /></h5>
+              <p class="card-text5" id="forecast"></p>
+            </div>
+          </div>
+        </div>
+        <div class="card-group">
+          <div class="card" style="border: 0px">
+            <div class="card-body">
+              <h5 class="card-title"><img id="icon" src="" /></h5>
+              <p class="card-text6" id="forecast"></p>
+            </div>
+          </div>
+        </div>
+        <div class="card-group">
+          <div class="card" style="border: 0px">
+            <div class="card-body">
+              <h5 class="card-title"><img id="icon" src="" /></h5>
+              <p class="card-text7" id="forecast"></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <footer>
+        <p>
+          <a
+            href="https://github.com/Nandini-ITM544/linktogithub"
+            target="_blank"
+            >Open source code</a
+          >
+          by Nandini
+        </p>
+      </footer>
     </div>
   </body>
   <script src="index.js"></script>
