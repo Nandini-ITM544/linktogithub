@@ -12,11 +12,6 @@ h1 {
   /*display: flex; */
 }
 
-#search-city {
-  top: 120px;
-  left: 120px;
-}
-
 #location {
   top: 175px;
   /* position: fixed; */
